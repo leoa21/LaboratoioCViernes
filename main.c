@@ -12,13 +12,12 @@ Matricula: 1986181
 
 int main(int argc, char *argv[]) {
 	
-	float x,z;
-	printf("Ingrese el valor de x\n"); //Pedimos el valor de x
+ 	float x,z; // Declaramos x y z como flotantes; x es el valor a pedir. Con z calculamos el resultado de la primer funcion. 
+	printf("Ingrese el valor de x: "); //Pedimos el valor de x
 	scanf("%f",&x);
-	
-	z=(6*((x+1)/8)-((2*x-3)/16)); //Aquí calculamos el resultado de la segunda funcion.}
-	printf("El resultado de la segunda funcion es %.3f\n",z); //Imprimimos el resultado de la segunda funcion.
-	
+
+	z=((2/3)*(x-(1-((x-2)/3))))+1; //Con el valor que nos dieron calculamos el resultado de la primer funcion 
+	printf("\nEl resultado de la primer funcion es %.2f",z); //Imprimimos el resultado de la primera funcion.
 	
 	
 	
