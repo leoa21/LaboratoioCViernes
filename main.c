@@ -12,13 +12,16 @@ Matricula: 1986181
 
 int main(int argc, char *argv[]) {
 	
-	float x,r; //Declaramos x y r; x es el valor a pedir. Con r calculamos el resultado.
-	
+	float x,z;
 	printf("Ingrese el valor de x\n"); //Pedimos el valor de x
 	scanf("%f",&x);
 	
-	r=((x-1)/4)-((x-5)/36);  //Con el valor que nos dieron calculamos el resultado de la primera funcion algebraica
-	printf("El resultado de la primera funcion es: %.3f\n",r); //Imprimimos el resultado de la primera funcion.
+	z=(6*((x+1)/8)-((2*x-3)/16)); //Aquí calculamos el resultado de la segunda funcion.}
+	printf("El resultado de la segunda funcion es %.3f\n",z); //Imprimimos el resultado de la segunda funcion.
+	
+	
+	
+	
 	
 	return 0;
 }
