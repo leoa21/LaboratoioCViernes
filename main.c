@@ -14,89 +14,56 @@ int main(int argc, char *argv[]) {
 	
 	
 	
-	
 	// *********Actividad 1*************
- 
-
-	float Cal=0;
-	
-	printf("Ingrese la calificacion: ");
-	scanf("%f",&Cal);
-	
-	if(Cal>=5 && Cal<=10)
-	{
-		printf("\nAPTO");
-	
-	}
-	else {
-		if(Cal>=0 && Cal<5)
-		{ 
-		printf("\nNO APTO");
-		}
-		else 
-		{
-			printf("\n\aERROR: Nota incorrecta");
-		}
-	}
-	
+ 	int z=0,a=0,x;
  	
-	// *********Actividad 2*************
-	
-	int dia=0;
-	
-	printf("\n\nIntroduzca el numero el dia de la semana: ");
-	scanf("%d",&dia);
-	
-	switch(dia) 
+ 	do
 	{
-	case 1: printf("\nLunes");
-	        break;
-	case 2: printf("\nMartes");
-			break;
-	case 3: printf("\nMiercoles");
-			break;
-	case 4: printf("\nJueves");
-			break;
-	case 5: printf("\nViernes");
-			break;
-    case 6: printf("\nSabado");
-    		break;
-    case 7: printf("\nDomingo");
-	
-	default: printf("ERROR: Dia incorrecto");
-	}
-	
-	// *************************************Actividad EXTRA**********************************
-	
-	int w=0;
-	
-	printf("\n\nIngrese el numero de lo que desea hacer: \n1. Llamada telefonica.\n2. Mensaje de texto.\n3. Inciar videoconferencia\n4. Enviar mensaje por WhatsApp.\n5. Enviar mensaje por Messenger\n\n");
-	scanf("%d",&w);
-	
-	switch(w)
-	{
+		x=0;
+		printf("Ingrese un numero entero: ");
+		scanf("%d",&a);
 		
-		case 1: printf("Usted ha seleccionado la opción: 1");
-				break;
-		case 2: printf("Usted ha seleccionado la opcion: 2");
-				break;
-		case 3: printf("Usted ha seleccionado la opcion: 3");
-				break;			
-		case 4: printf("Usted ha seleccionado la opcion: 4");
-				break;
-		case 5: printf("Usted ha seleccionado la opcion: 5");
-				break;		
-		default: printf("Lo sentimos, datos incorrectos");
+		printf("¿Desea introducir otro? \n\n0. Si\n\n1. No \n\n");
+		scanf("%d",&x);
+		
+		z=z+a;
+		a=0;
+			} while(x==0);		
+ 	
+ 	printf("La suma de lo numeros introducidos es: %d",z);
+ 	
+ 	
+ 		// *********Actividad 2*************
+ 		
+ 		
+ 	int w=0;
 
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+ 	while(w<=100)
+ 	{
+ 		w=0;
+ 		printf("\nIngrese un numero entero:  \n");
+ 	    scanf("%d",&w);
+ 	    if(w<=100) {
+ 	    	printf("El numero introducido es: %d\n",w);
+		 }
+		 
+	 };
+
+ 	// *********Actividad Extra*************		
+ 	
+ 		
+ 	
+ 	w=0;
+ 	printf("\t\tActividad EXTRA");
+ 	do {
+ 		printf("\nIngrese un numero entero:  \n");
+ 	    scanf("%d",&w);
+ 	    if(w<=100)
+ 		printf("El numero introducido es: %d\n",w);
+ 	
+		  }while(w<=100);
+ 	
+ 	 	
 	getch();
 	
 	return 0;
