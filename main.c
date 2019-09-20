@@ -10,59 +10,57 @@ Horario: Viernes 7am-9am
 Matricula: 1986181
 */
 
+#define NUM 10
 int main(int argc, char *argv[]) {
 	
 	
 	
 	// *********Actividad 1*************
- 	int z=0,a=0,x;
- 	
- 	do
+
+		float cal=0,prom=0;
+		int i=0;
+		
+		
+		for(i=1;i<11;i++)
+		{
+			printf("Ingrese la calificacion %d: ",i);
+			scanf("%f",&cal);
+			
+			while(cal<0 || cal>10)
+			{
+			 printf("Dato incorrecto, ingrese la calificacion nuevamente: ");
+			 scanf("%f",&cal);
+			}
+			prom=prom+cal;
+			cal=0;
+		}	
+		
+		prom=prom/NUM;
+		if(prom>=7) 
+		{
+			printf("\nEl promedio del alumno fue: %.2f\nAPROBADO",prom);
+		}
+		else {
+			printf("\nEl promedio del alumno fue: %.2f\nREPOBRADO",prom);
+		}
+
+	 	// *********Actividad 2*************
+
+	int b=0,e=0,r=1;
+	
+	printf("\n\nPrograma que calcula la potencia de un numero");
+	printf("\nIngrese el numero correspondiente a la de base: ");
+	scanf("%d",&b);
+	printf("Ingrese el numero correspondiente al exponente: ");
+	scanf("%d",&e);
+		
+	for(i=0;i<e;i++)
 	{
-		x=0;
-		printf("Ingrese un numero entero: ");
-		scanf("%d",&a);
-		
-		printf("¿Desea introducir otro? \n\n0. Si\n\n1. No \n\n");
-		scanf("%d",&x);
-		
-		z=z+a;
-		a=0;
-			} while(x==0);		
- 	
- 	printf("La suma de lo numeros introducidos es: %d",z);
- 	
- 	
- 		// *********Actividad 2*************
- 		
- 		
- 	int w=0;
+		r=r*b;
+	}
 
- 	while(w<=100)
- 	{
- 		w=0;
- 		printf("\nIngrese un numero entero:  \n");
- 	    scanf("%d",&w);
- 	    if(w<=100) {
- 	    	printf("El numero introducido es: %d\n",w);
-		 }
-		 
-	 };
-
- 	// *********Actividad Extra*************		
- 	
+	printf("\nEl resultado de el numero %d elevado a la potencia %d es igual a: %d",b,e,r);
  		
- 	
- 	w=0;
- 	printf("\t\tActividad EXTRA");
- 	do {
- 		printf("\nIngrese un numero entero:  \n");
- 	    scanf("%d",&w);
- 	    if(w<=100)
- 		printf("El numero introducido es: %d\n",w);
- 	
-		  }while(w<=100);
- 	
  	 	
 	getch();
 	
