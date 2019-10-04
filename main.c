@@ -17,25 +17,31 @@ int main(int argc, char *argv[]) {
 	
 	// *********Actividad 1*************
 	
-	int numeroDeCoches[24]={ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
-	int R=2;
-	printf("\t\tActividad 1 \nPrograma que muestra el total de coches en un hora en especifico\n\n");
-	numeroDeCoches[R]=57;
-	printf("En la hora %d hay un total de coches de %d\n",R,numeroDeCoches[R]);
+	int VentaEOE[6][10][2];
+	int i=0,j=0,k=0,p=2;
 	
-	R=21;
-	numeroDeCoches[R]=57;
-	printf("En la hora %d hay un total de coches de %d\n",R,numeroDeCoches[R]);
+	for(i=0;i<6;i++)
+	{
+		for (j=0;j<10;j++)
+		{
+			for (k=0;k<2;k++)
+			{
+				VentaEOE[i][j][k]=p+2;
+			}
+		}
+	}
+	printf("\t\t\tActividad 1\n");
+	VentaEOE[3][7][1]=4234;
+	printf("\nEl empleado 3, de la oficina 7, del edificio 2, ha vendido %d\n\n",VentaEOE[3][7][1]);
 	
-
 	 	// *********Actividad 2*************
- 
- 	int A=8,B=4,Z=0;
- 	printf("\n\t\tActividad 2 \nPrograma que determina el valor de la posicion que se encuetra en el resultado de la division de A y B\n");
- 	printf("\nEl valor de A=%d\nEl valor de B=%d\n",A,B);
- 	Z=A/B;
- 	printf("El numero de coches en la posicion %d es %d",Z,numeroDeCoches[Z]);
- 	
+	printf("\t\t\tActividad 2\n");
+ 	VentaEOE[3][7][1]=4234+10;
+	printf("\nEl empleado 3, de la oficina 7, del edificio 2, ha vendido %d",VentaEOE[3][7][1]);
+	printf("\n\nPosicion fuera del arreglo: %d",VentaEOE[13][22][10]);
+	
+	
+	
 	getch();
 	
 	return 0;
