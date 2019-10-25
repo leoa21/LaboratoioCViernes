@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include<ctype.h>
 
 /*
 Autor: Leonardo Damian Alvarez Mendoza
@@ -10,122 +11,126 @@ Horario: Viernes 7am-9am
 Matricula: 1986181
 */
 
+typedef struct  
+	{
+		char nom[60];
+		char sex[10];
+		int edad;
+		float notas[5];
+	}Estudiante;
 
-void printfV(char lett, int val);
+typedef struct 
+{
+	char nom_p[40];
+	char sex_p;
+	float peso;
+	int a_nacimiento;
+}Panda;
+
+void LeerPanda();
+int EdadPanda( int p);
+int Tenerbebes(int t, char g);
+int edad,x;
 
 int main(int argc, char *argv[]) {
 	
-	
-	
 	// *********Actividad 1*************
-	char Palabra[30];
-	int i=0,j=0,p=0;
-	printf("Escribe una palabra: ");
-	gets(Palabra);
-	i=strlen(Palabra)-1;
-	for(j=0;j<i;j++,i--)
-	{
-		if(Palabra[j]==Palabra[i])
-		p=1;
-		else 
-		p=0;
-	}
+	Estudiante est[60];
+	int i=0,k=0,N=0;
+	float prom_may=-1,prom;
+	char stud_may[60];
 	
-	if(p==1)
+	do
 	{
-		printf("Es palindromo");
-	}
-	else 
-	{
-		printf("No es palindromo");
-	}
+		printf("Ingrese el numero de estudiantes: ");
+		scanf("%d",&N);
+	}while(N<1 || N>60);
 	
-
-
-	
-	 	// *********Actividad 2*************
-	
-	printf("\n\t\tActividad 2\n\n");
-	char string[10]={ };
-	int contlet=0,aa=0,bb=0,cc=0,dd=0,ee=0,ff=0,gg=0,hh=0,ii=0,jj=0,kk=0,ll=0,mm=0,nn=0,oo=0,pp=0,qq=0,rr=0,ss=0,tt=0,uu=0,vv=0,ww=0,xx=0,yy=0,zz=0;
-	i=0;
-	printf("Ingrese una palabra de 1 a 10 letras: ");
-	gets(string);
-	contlet=strlen(string);
-	while(contlet>10)
-	{
-		printf("Ingrese un palabra menor a %d",contlet);
-		gets(string);
-	}
-	
-	for(i=0;i<10;i++)
-	{
-		switch(string[i])
-		{
-			case 'a': aa++;break;
-			case 'b': bb++;break;
-			case 'c': cc++;break;
-			case 'd': dd++;break;
-			case 'e': ee++;;break;
-			case 'f': ff++;break;
-			case 'g': gg++;break;
-			case 'h': hh++;break;
-			case 'i': ii++;break;
-			case 'j': jj++;break;
-			case 'k': kk++;break;
-			case 'l': ll++;break;
-			case 'm': mm++;break;
-			case 'n': nn++;break;
-			case 'o': oo++;break;
-			case 'p': pp++;break;
-			case 'q': qq++;break;
-			case 'r': rr++;break;
-			case 's': ss++;break;
-			case 't': tt++;break;
-			case 'u': uu++;break;
-			case 'v': vv++;break;
-			case 'w': ww++;break;
-			case 'x': xx++;break;
-			case 'y': yy++;break;
-			case 'z': zz++;break;
-	}
-}
+	for(i=1;i<=N;i++){
 		
-	printfV('A',aa);
-	printfV('B',bb);
-	printfV('C',cc);
-	printfV('D',dd);
-	printfV('E',ee);
-	printfV('F',ff);
-	printfV('G',gg);
-	printfV('H',hh);
-	printfV('I',ii);
-	printfV('J',jj);
-	printfV('K',kk);
-	printfV('L',ll);
-	printfV('M',mm);
-	printfV('N',nn);
-	printfV('O',oo);
-	printfV('P',pp);
-	printfV('Q',qq);
-	printfV('R',rr);
-	printfV('S',ss);
-	printfV('T',tt);
-	printfV('U',uu);
-	printfV('V',vv);
-	printfV('W',ww);
-	printfV('X',xx);
-	printfV('Y',yy);
-	printfV('Z',zz);
+		fflush(stdin);
+		printf("Ingrese el nombre del alumno %d: ",i);
+		gets(est[i].nom);
+		printf("Ingrese el sexo: ");
+		gets(est[i].sex);
+		printf("Ingrese la edad: ");
+		scanf("%d",&est[i].edad);
+		prom=0.0;
+		for(k=0;k<5;k++)
+		{	
+			do 
+			{
+			printf("Ingrese la calificacion del parcial %d: ", k+1);
+			scanf("%f",&est[i].notas[k]);
+			
+			}while(est[i].notas[k]<0 || est[i].notas[k]>100);
+			prom=prom + est[i].notas[k];	
+		}
+		prom=prom/5;
+		printf("El promedio del alumno %s es: %.2f\n\n",est[i].nom,prom);
+		if(prom>prom_may)
+		{
+			prom_may=prom;
+			strcpy(stud_may,est[i].nom);
+		}
+	}
+	printf("El alumno %s obtuvo el promedio mas alto con: %.2f",stud_may,prom_may);
 
-	getch();
 	
+	
+	// *********Actividad 2*************
+
+	printf("\n\n\t\tACTIVIDAD 2");
+	LeerPanda();
+	
+	getch();
 	return 0;
 }
 
+void LeerPanda()
+{		Panda oso;
+		fflush(stdin);
+		printf("\n\t      DATOS DEL PANDA\n\n");
+		printf("Ingrese el nombre del panda: ");
+		gets(oso.nom_p);
+		printf("Ingrese el sexo: \nh: hembra.\nm: macho: ");
+		oso.sex_p=getchar();
+		tolower(oso.sex_p);
+		printf("Ingrese el peso: ");
+		scanf("%f",&oso.peso);
+		printf("Ingrese el a%co de nacimiento: ",164);
+		scanf("%d",&oso.a_nacimiento);
+		edad=oso.a_nacimiento;
+		EdadPanda(edad);
+		Tenerbebes(edad, oso.sex_p);
+		if(x==1)
+		{
+			printf("El panda %s de sexo %c con edad de: %d a%cos, puede tener bebes",oso.nom_p,oso.sex_p,edad,164);
+		}
+		else 
+		{
+			printf("El panda %s de sexo %c con edad de: %d a%cos, no puede tener bebes",oso.nom_p,oso.sex_p,edad,164);
+		}
+	
+		
+}
 
-void printfV(char lett, int val)
+int EdadPanda(int p)
 {
-	if(val>0)
-	printf("\n%c: %d",lett,val);
+	edad=2019-edad;
+	
+	return edad;
+}
+
+int Tenerbebes(int t,char g)
+{ 
+	if(edad>5 && g=='h')
+	{
+		x=1;
+	}
+	else 
+	{
+		x=0;
+	}
+return x;
 }
