@@ -13,130 +13,52 @@ Matricula: 1986181
 
 
 
-#define SIZE_NAME 30
-#define SIZE 4
-struct pictures_info
-{
-	char name[SIZE_NAME];
-	int date_time;
-};
-
-struct cordinates
-{
-	int latitude;
-	int longitude;
-}places[SIZE];
 
 
 int main(int argc, char *argv[]) {
 	
 	// *********Actividad 1*************
-	
-	
-	 int i;
-	struct pictures_info pic[2];
-	struct pictures_info *ptr;
-	ptr=pic;
-	
-	for(i=0;i<2;i++)
+	FILE *pa = NULL;
+	FILE *pw= NULL;
+	char t[30];
+	int n=0,i;
+	pa=fopen("Hola.txt","w+");
+	if(pa==NULL)
 	{
-		fflush(stdin);
-		printf("Ingrese el nombre de la foto: ");
-		gets((ptr+i)->name);
-		printf("Ingrese la fecha: ");
-		scanf("%d",&(ptr+i)->date_time);
-		printf("\n");
+		printf("Error de apertura");
+		return -1;
 	}
-	
-	
+	else 
+	{	
+		fputs("Hola mundo",pa);
 		
+	}
+		pw=fopen("archivo_alreves.txt","w");
+		if(pw==NULL)
+		{
+				printf("Error de apertura");
+				return -2;
+		}
+		
+		fputs("odnum aloH",pw);
+		fputs("\nProcesado",pa);
+	
 	// *********Actividad 2*************
-	int a,j,aux;
-	struct cordinates *p;
-	int lon[4],lat[4];
-	
-	p=places;
-	
-	places[0].latitude=200;	
-	places[0].longitude=300;
-	places[1].latitude=400;
-	places[1].longitude=100;
-	places[2].latitude=100;
-	places[2].longitude=400;
-	places[3].latitude=300;
-	places[3].longitude=200;
-	
-	printf("\n\t\t\tActividad 2\n");	
-	
-	
-		printf("De que forma desea acceder a los datos?\n");
-		printf("\n1.Tal y como han sido agregados.\n2.Por latitud.\n3.Por longitud.\n\n");
-		scanf("%d",&a);	
-	
-		
-	
-	
-	printf("\n");
-	
-	switch (a)
-	{
-		case 1: for (i=0;i<4;i++)
-			{
-				printf("Latidud: %d\n",places[i].latitude);
-				printf("Longitud:%d\n",places[i].longitude);
-			};
-			break;	
-			
-		case 2: for(i=0;i<4;i++)
-				{	
-				lat[i]=(p+i)->latitude;	
-				}
-				
-				for(i=1;i<4;i++)
-				{
-					for(j=0;j<3;j++)
-					{
-						if(lat[j]>lat[j+1])
-						{
-							aux=lat[j];
-							lat[j]=lat[j+1];
-							lat[j+1]=aux;
-						}
-					}
-				}
-				for(i=0;i<4;i++)
-				{
-					printf("Latitud: %d",lat[i]);
-					printf("\n");
-				}
-				break;
-				
-		case 3: aux=0;
-				for(i=0;i<4;i++)
-				{	
-					lon[i]=(p+i)->longitude;	
-				}
-	
-				for(i=1;i<4;i++)
-				{
-					for(j=0;j<3;j++)
-					{
-						if(lon[j]>lon[j+1])
-						{
-							aux=lon[j];
-							lon[j]=lon[j+1];
-							lon[j+1]=aux;
-						}
-					}
-				}
-				for(i=0;i<4;i++)
-				{
-				printf("Longitud: %d",lon[i]);
-				printf("\n");
-				}
-				break;
-		default: printf("INGRESO DATOS INCORRECTOS");		
-	}
+	FILE *px= NULL;
+	px=fopen("suma.txt","r");
+	int a,b;
+	printf("Ingrese 2 numeros");
+ 	fscanf(px,"a: %d y b: %d ",a,b);
+ 	fclose(px);
+	 printf("Los numeros son: %d %d",a,b);
+	 printf("\nCreando un archivo de la suma de a y b");
+	 FILE *po= NULL;
+	 po=fopen("sumatoria.txt","w");
+	 fprintf(po,"La suma es: %d",a+b);
+	 printf("\nARCHIVO suma CREADO");
+	 fclose(po);
+
+
 	
 getch();
 
